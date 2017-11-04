@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset"UTF-8">
+	<link rel="stylesheet" type="text/css" href="estilo/style.css">
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<title>Agenda</title>
+
+	 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+     
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<?php
+	session_start("usuario_logado");	
+	?>
+	<?php  if(isset($_SESSION["usuario_logado"])=== true): ?> 
+
+<body background="Imagens/agenda-reuniao.jpg">
+
+<div class="container">
+  <h2>CONSULTAR</h2>
+	
+	    <div class="modal-dialog">
+	    
+	      <!-- Modal content-->
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal">&times;</button>
+	          <h4 class="modal-title">CONSULTAR:</h4>
+	        </div>
+	        <div class="modal-body">
+		          <form method="POST" action="../Form/AgendaForm.php">
+					<br>
+					<br>
+					<h3>ID: <input type="text" name="ID"> </h3>
+					<br>
+					<input type="submit" name="Consultar" value="Consultar" data-toggle="modal" data-target="#myModal" >
+				</form>
+	        </div>
+
+	      </div>
+	      
+	    </div>
+	  </div>
+	  
+	</div>
+
+</body>
+</html>
+
+<?php else:
+	echo "<br><br><br><br>";
+	echo "<center> <h1> Acesso não permitido!!! <br> Voltar a página Login e realiza-lo </h1> </center>"; 
+	echo "<center> <input type=\"button\" value=\"Voltar Menu\" onclick=\"javascript: location.href='../Paginas/PaginaLogin.php';\"class=\"btn btn-primary\"/></center>";
+	?>
+<?php endif; ?>
